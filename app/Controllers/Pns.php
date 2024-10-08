@@ -17,11 +17,12 @@ class Pns extends BaseController
         // GET /pns/data-utama/{nipBaru}
 
         $client = service('curlrequest');
+        $cache = service('cache');
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/data-utama/'.$nip, [
             'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
-                'Authorization'     => 'Bearer '.getenv('wso.oauth2.token'),
+                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false
         ]);

@@ -23,10 +23,19 @@ class Auth extends BaseController
                 'username'      => getenv('wso.auth.username'),
                 'password'      => getenv('wso.auth.password'),
             ],
-            'verify' => false
+            'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            ],
+            'verify' => false,
+            'debug' => true
         ]);
 
-        echo $response->getBody();
+        $response = json_decode($response->getBody());
+
+        
+        $cache = service('cache');
+        $set = $cache->save('auth.token',$response->access_token,3600);
+        echo 'Done';
     }
 
     public function getAuthorization()
@@ -41,6 +50,10 @@ class Auth extends BaseController
             'verify' => false
         ]);
 
-        echo $response->getBody();
+        $response = json_decode($response->getBody());
+
+        $cache = service('cache');
+        $set = $cache->save('oauth2.token',$response->access_token,3600);
+        echo 'Done';
     }
 }
