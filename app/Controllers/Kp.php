@@ -71,7 +71,7 @@ class Kp extends BaseController
 
             $model = new KpModel;
 
-            if($this->check($row->id)){
+            if($this->checkId($row->id)){
                 $save = $model->save($param);
             }else{
                 $save = $model->insert($param);
