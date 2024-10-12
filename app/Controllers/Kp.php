@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\KpModel;
+use App\Models\SimpegModel;
 
 class Kp extends BaseController
 {
@@ -47,7 +48,11 @@ class Kp extends BaseController
         // return $this->response->setJSON($list->data);
         // print_r($list->data);
 
+        // $smodel = new SimpegModel;
+
         foreach($list->data as $row){
+            // $simpeg = $smodel->getPegawai($row->nipBaru);
+
             $param = [
                 'id' => $row->id,
                 'pnsId' => $row->pnsId,
@@ -66,7 +71,8 @@ class Kp extends BaseController
                 'golonganBaruId' => $row->golonganBaruId,
                 'unor_induk_id' => $row->unor_induk_id,
                 'unor_nama' => $row->unor_nama,
-                'tmtKp' => $row->tmtKp
+                'tmtKp' => $row->tmtKp,
+                // 'satker' => $simpeg->SATKER_4
             ];
 
             $model = new KpModel;

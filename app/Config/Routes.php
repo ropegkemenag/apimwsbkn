@@ -6,6 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get('admin', 'Home::admin');
 
 $routes->get('auth', 'Auth::index');
 $routes->get('auth/token', 'Auth::getAuth');
