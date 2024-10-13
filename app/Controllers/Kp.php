@@ -44,7 +44,8 @@ class Kp extends BaseController
     public function storedb($periode)
     {
         $list = json_decode($this->list($periode));
-
+        $model = new KpModel;
+        $model->truncate();
         // return $this->response->setJSON($list->data);
         // print_r($list->data);
 
@@ -74,8 +75,6 @@ class Kp extends BaseController
                 'tmtKp' => $row->tmtKp,
                 // 'satker' => $simpeg->SATKER_4
             ];
-
-            $model = new KpModel;
 
             // if($this->checkId($row->id)){
             //     $save = $model->save($param);
