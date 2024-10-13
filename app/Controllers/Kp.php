@@ -75,7 +75,7 @@ class Kp extends BaseController
                 // 'satker' => $simpeg->SATKER_4
             ];
 
-            // $model = new KpModel;
+            $model = new KpModel;
 
             // if($this->checkId($row->id)){
             //     $save = $model->save($param);
