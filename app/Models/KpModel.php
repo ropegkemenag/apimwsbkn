@@ -43,4 +43,9 @@ class KpModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function truncate()
+    {
+      $query = $this->db->table('siasn_kp')->truncate();
+    }
 }
