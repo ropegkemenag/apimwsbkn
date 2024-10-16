@@ -29,3 +29,7 @@ $routes->get('casn/store/(:num)/(:num)/(:num)', 'Casn::store/$1/$2/$3');
 
 // IPASN
 $routes->get('ipasn/nip/(:num)/(:num)', 'Ipasn::nip/$1/$2');
+
+// Pengadaan
+$routes->get('pengadaan/list', 'Pengadaan::list');
+$routes->get('pengadaan/dokumen', 'Pengadaan::dokumen');
