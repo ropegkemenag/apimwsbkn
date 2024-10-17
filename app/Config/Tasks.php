@@ -51,7 +51,10 @@ class Tasks extends BaseTasks
 
         $schedule->call(static function () {
             Auth::getAuth();
+        })->everyThirtyMinutes()->named('Get SSO Token');
+
+        $schedule->call(static function () {
             Auth::getAuthorization();
-        })->everyHour()->named('Get Auth BKN');
+        })->everyThirtyMinutes()->named('Get Authorization App');
     }
 }
