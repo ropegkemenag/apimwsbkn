@@ -12,6 +12,9 @@ $routes->get('auth', 'Auth::index');
 $routes->get('auth/token', 'Auth::getAuth');
 $routes->get('auth/authorization', 'Auth::getAuthorization');
 
+$routes->cli('auth/token', 'Auth::getAuth');
+$routes->cli('auth/authorization', 'Auth::getAuthorization');
+
 $routes->get('pns/datautama/(:any)', 'Pns::datautama/$1');
 
 // KP
@@ -33,3 +36,4 @@ $routes->get('ipasn/nip/(:num)/(:num)', 'Ipasn::nip/$1/$2');
 // Pengadaan
 $routes->get('pengadaan/list', 'Pengadaan::list');
 $routes->get('pengadaan/dokumen', 'Pengadaan::dokumen');
+
