@@ -35,7 +35,7 @@ class Auth extends BaseController
         
         $cache = service('cache');
         $set = $cache->save('auth.token',$response->access_token,3600);
-        echo 'Done';
+        echo $response->access_token;
     }
 
     public function getAuthorization()
