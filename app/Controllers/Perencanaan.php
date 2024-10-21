@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
+use App\Models\PerencanaanModel;
 
 class Perencanaan extends BaseController
 {
@@ -27,7 +28,7 @@ class Perencanaan extends BaseController
             ],
             'query' => [
                 'page' => 1,
-                'per_page' => 20,
+                'per_page' => 50,
                 'jenis_pengadaan' => '02',
             ],
             'debug' => true,
@@ -38,9 +39,9 @@ class Perencanaan extends BaseController
     }
 
     function storedb() {
-        $limit = 100;
+        // $limit = 100;
         
-        $offset = ($page>0)?($limit*$page):0;
+        // $offset = ($page>0)?($limit*$page):0;
 
         $list = $this->formasi();
         $lists = json_decode($list);
@@ -67,7 +68,7 @@ class Perencanaan extends BaseController
                 'jabatan_fungsional_id' => $row->jabatan_fungsional_id,
                 'nama_jabatan' => $row->nama_jabatan,
                 'pendidikan' => $row->pendidikan,
-                'pendidikan_id' => $row->pendidikan_id,
+                'pendidikan_id' => json_encode($row->pendidikan_id),
                 'alokasi_formasi' => $row->alokasi_formasi,
                 'jenis_jabatan_umum' => $row->jenis_jabatan_umum,
                 'jenis_jabatan_umum_id' => $row->jenis_jabatan_umum_id,
@@ -93,18 +94,18 @@ class Perencanaan extends BaseController
                 'is_setuju' => $row->is_setuju,
             ];
 
-            if($this->checkId($row->formasi_id)){
-                $save = $model->save($param);
-            }else{
-                $save = $model->insert($param);
-            }
+            // if($this->checkId($row->formasi_id)){
+            //     $save = $model->save($param);
+            // }else{
+            // }
+            $save = $model->insert($param);
         }
 
-        $page = $page+1;
-        if($lists->data->page->total == $limit){
-            return redirect()->to('casn/store/'.$tahun.'/'.$page.'/'.$id);
-        }else{
-            echo 'Done';
-        }
+        // $page = $page+1;
+        // if($lists->data->page->total == $limit){
+        //     return redirect()->to('casn/store/'.$tahun.'/'.$page.'/'.$id);
+        // }else{
+        // }
+        echo 'Done';
     }
 }
