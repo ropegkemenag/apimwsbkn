@@ -39,5 +39,5 @@ $routes->get('pengadaan/dokumen', 'Pengadaan::dokumen');
 
 // Perencanaan
 $routes->get('perencanaan/formasi', 'Perencanaan::formasi');
-$routes->get('perencanaan/dokumen', 'Perencanaan::dokumen');
+$routes->get('perencanaan/storedb', 'Perencanaan::storedb');
 

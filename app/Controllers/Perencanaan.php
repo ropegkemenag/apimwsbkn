@@ -27,7 +27,7 @@ class Perencanaan extends BaseController
             ],
             'query' => [
                 'page' => 1,
-                'per_page' => 50,
+                'per_page' => 20,
                 'jenis_pengadaan' => '02',
             ],
             'debug' => true,
@@ -35,5 +35,76 @@ class Perencanaan extends BaseController
         ]);
 
         return $response->getBody();
+    }
+
+    function storedb() {
+        $limit = 100;
+        
+        $offset = ($page>0)?($limit*$page):0;
+
+        $list = $this->formasi();
+        $lists = json_decode($list);
+
+        // return $list;
+        // echo $list->data->page->total;
+        $model = new PerencanaanModel;
+        foreach($lists->data->records as $row){
+            $param = [
+                'id' => $row->id,
+                'usul_sotk_id' => $row->usul_sotk_id,
+                'usul_sotk_detail_id' => $row->usul_sotk_detail_id,
+                'usul_rincian_formasi_id' => $row->usul_rincian_formasi_id,
+                'instansi_id' => $row->instansi_id,
+                'statusRincian' => $row->statusRincian,
+                'kebutuhan_pegawai' => $row->kebutuhan_pegawai,
+                'penghasilan_min' => $row->penghasilan_min,
+                'penghasilan_max' => $row->penghasilan_max,
+                'pembina_id' => $row->pembina_id,
+                'kualifikasi_guru' => $row->kualifikasi_guru,
+                'pendidikan_pembina_id' => $row->pendidikan_pembina_id,
+                'penghasilan' => $row->penghasilan,
+                'jenis_jabatan_id' => $row->jenis_jabatan_id,
+                'jabatan_fungsional_id' => $row->jabatan_fungsional_id,
+                'nama_jabatan' => $row->nama_jabatan,
+                'pendidikan' => $row->pendidikan,
+                'pendidikan_id' => $row->pendidikan_id,
+                'alokasi_formasi' => $row->alokasi_formasi,
+                'jenis_jabatan_umum' => $row->jenis_jabatan_umum,
+                'jenis_jabatan_umum_id' => $row->jenis_jabatan_umum_id,
+                'jenis_pengadaan' => $row->jenis_pengadaan,
+                'jenis_pengadaan_id' => $row->jenis_pengadaan_id,
+                'unit_kerja' => $row->unit_kerja,
+                'mapping_pendidikan_perencanaan_2024' => $row->mapping_pendidikan_perencanaan_2024,
+                'status_verifikasi_id' => $row->status_verifikasi_id,
+                'alasan_tolak' => $row->alasan_tolak,
+                'total_kebutuhan' => $row->total_kebutuhan,
+                'import_pembina' => $row->import_pembina,
+                'prioritas_pembina' => $row->prioritas_pembina,
+                'total_rincian' => $row->total_rincian,
+                'sudah_verval' => $row->sudah_verval,
+                'belum_verval' => $row->belum_verval,
+                'status_verifikasi_menpan_id' => $row->status_verifikasi_menpan_id,
+                'alasan_tolak_menpan' => $row->alasan_tolak_menpan,
+                'keterangan_tolak_menpan' => $row->keterangan_tolak_menpan,
+                'nama_sub_jabatan' => $row->nama_sub_jabatan,
+                'setuju_menpan' => $row->setuju_menpan,
+                'ditolak_menpan' => $row->ditolak_menpan,
+                'diperbaiki_menpan' => $row->diperbaiki_menpan,
+                'is_setuju' => $row->is_setuju,
+            ];
+
+            if($this->checkId($row->formasi_id)){
+                $save = $model->save($param);
+            }else{
+                $save = $model->insert($param);
+            }
+        }
+
+        $page = $page+1;
+        if($lists->data->page->total == $limit){
+            return redirect()->to('casn/store/'.$tahun.'/'.$page.'/'.$id);
+        }else{
+            echo 'Done';
+        }
     }
 }
