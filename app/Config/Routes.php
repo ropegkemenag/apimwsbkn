@@ -37,3 +37,7 @@ $routes->get('ipasn/nip/(:num)/(:num)', 'Ipasn::nip/$1/$2');
 $routes->get('pengadaan/list', 'Pengadaan::list');
 $routes->get('pengadaan/dokumen', 'Pengadaan::dokumen');
 
+// Perencanaan
+$routes->get('perencanaan/formasi', 'Perencanaan::formasi');
+$routes->get('perencanaan/dokumen', 'Perencanaan::dokumen');
+
