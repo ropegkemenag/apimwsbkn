@@ -18,7 +18,7 @@ class Perencanaan extends BaseController
         // https://api-sscasn.bkn.go.id/2024/dashboard/cpns/statistik?pengadaan_kd=
         $client = service('curlrequest');
 
-        $response = $client->request('GET', 'https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/verval/menpan/list?usul_rincian_formasi_id=3a6b38a7-ec6c-4faf-ad0c-7498208d72fb&page=1', [
+        $response = $client->request('GET', 'https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/verval/menpan/list', [
             'headers' => [
                 'Accept'        => 'application/json',
                 'Content-Type' => 'application/json',
@@ -27,8 +27,9 @@ class Perencanaan extends BaseController
                 'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
             ],
             'query' => [
+                'usul_rincian_formasi_id' => '3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
                 'page' => 1,
-                'per_page' => 50,
+                'per_page' => 1,
                 'jenis_pengadaan' => '02',
             ],
             'debug' => true,
