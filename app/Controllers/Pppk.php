@@ -199,6 +199,8 @@ class Pppk extends BaseController
         $jenis_jabatan_umum_id = $this->request->getVar('jenis_jabatan_umum_id');
         $angka_pppk_teknis = $this->request->getVar('angka_pppk_teknis');
 
+        $pendidikan = str_replace("xxx", $usdid, $pendidikan);
+
         $response = $client->request('POST', 'https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/updateRincian', [
             'headers' => [
                 'Accept'        => 'application/json',
@@ -247,6 +249,8 @@ class Pppk extends BaseController
             'debug' => true,
             'verify' => false
         ]);
+
+        $response = json_decode($response->getBody());
 
         return $this->response->setJSON($response);
     }

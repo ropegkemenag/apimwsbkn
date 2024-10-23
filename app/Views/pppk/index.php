@@ -387,6 +387,7 @@ function changekuota() {
     })
     .then(function (response) {
         console.log(response);
+        alert(response.data.respon_status.status);
     })
     .catch(function (error) {
         console.log(error);
