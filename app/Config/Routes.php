@@ -42,3 +42,7 @@ $routes->get('perencanaan/formasi', 'Perencanaan::formasi');
 $routes->get('perencanaan/storedb', 'Perencanaan::storedb');
 $routes->get('perencanaan/search/(:any)/(:any)', 'Perencanaan::search/$1/$2');
 
+// Perencanaan PPPK
+$routes->get('pppk/search/(:any)/(:any)', 'Pppk::search/$1/$2');
+$routes->get('pppk/searchunor/(:any)', 'Pppk::searchunor/$1');
+
