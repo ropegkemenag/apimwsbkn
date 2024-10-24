@@ -54,8 +54,8 @@ class Pppk extends BaseController
         }
 
 
-        return $this->response->setJSON(['id'=>'Gak ada']);
-        // return $this->response->setJSON($lists);
+        // return $this->response->setJSON(['id'=>'Gak ada']);
+        return $this->response->setJSON($lists);
 
     }
 
