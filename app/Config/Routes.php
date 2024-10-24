@@ -44,6 +44,7 @@ $routes->get('perencanaan/search/(:any)/(:any)', 'Perencanaan::search/$1/$2');
 
 // Perencanaan PPPK
 $routes->get('pppk', 'Pppk::index');
+$routes->get('pppk/sotk', 'Pppk::sotk');
 $routes->post('pppk/changekuota', 'Pppk::changekuota');
 $routes->get('pppk/search/(:any)/(:any)', 'Pppk::search/$1/$2');
 $routes->get('pppk/search/(:any)/(:any)/(:any)', 'Pppk::search/$1/$2/$3');

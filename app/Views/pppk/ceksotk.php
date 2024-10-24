@@ -169,7 +169,7 @@
 
       <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Features</a>
-        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="<?= site_url('pppk/sotk')?>">SOTK</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Enterprise</a>
         <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="#">Support</a>
         <a class="py-2 link-body-emphasis text-decoration-none" href="#">Pricing</a>
       </nav>
@@ -179,16 +179,17 @@
   <main>
     <div class="row text-center">
       <div class="col">
+
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Cek Formasi</h4>
+            <h4 class="my-0 fw-normal">Cek SOTK</h4>
           </div>
           <div class="card-body">
           <form>
     <div class="row gx-3 gy-2 align-items-center">
-        <div class="col-sm-3">
-            <label class="visually-hidden" for="specificSizeInputName">Jabatan</label>
-            <select name="jabatan" class="form-select" id="jabatan">
+    <div class="col-sm-3">
+            <label class="visually-hidden" for="jabatan2">Jabatan</label>
+            <select name="jabatan" class="form-select" id="jabatan2">
                 <option value="ff80808132b9d98c0132cd178bc8056e">Guru Ahli Pertama</option>
                 <option value="6f6c8805d5284da79b9e12b0fae5f882">Operator Layanan Operasional</option>
                 <option value="F426F8A44B17A8BDE050640AF2083B83">Penata Layanan Operasional</option>
@@ -198,106 +199,24 @@
             </select>
         </div><!--end col-->
         <div class="col-sm-3">
-            <label class="visually-hidden" for="penempatan">Penempatan</label>
-            <input type="text" class="form-control" id="subjabatan" name="subjabatan" placeholder="subjabatan">
-        </div><!--end col-->
+            <label class="visually-hidden" for="subjabatan2">Penempatan</label>
+            <input type="text" class="form-control" id="subjabatan2" name="subjabatan2" placeholder="subjabatan">
+        </div>
         <div class="col-sm-3">
-            <label class="visually-hidden" for="penempatan">Penempatan</label>
-            <input type="text" class="form-control" id="penempatan" name="penempatan" placeholder="Penempatan">
+            <label class="visually-hidden" for="unor">SOTK</label>
+            <input type="text" class="form-control" id="unor" name="unor" placeholder="SOTK">
         </div><!--end col-->
         <div class="col-auto">
-            <button type="button" class="btn btn-primary" onclick="search()">Cek</button>
+            <button type="button" class="btn btn-primary" onclick="searchsotk()">Cek</button>
         </div><!--end col-->
     </div>
 </form>
           </div>
         </div>
-
         <div class="card mb-4 rounded-3 shadow-sm">
-          <div class="card-body">
-          <form action="">
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="nameInput" class="form-label">id</label>
-                </div>
-                <div class="col-lg-9">
-                    <input type="text" class="form-control" id="id">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="websiteUrl" class="form-label">pendidikan</label>
-                </div>
-                <div class="col-lg-9">
-                    <textarea name="pendidikan" id="pendidikan" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="dateInput" class="form-label">usul_sotk_detail_id</label>
-                </div>
-                <div class="col-lg-9">
-                    <input type="text" class="form-control" name="usul_sotk_detail_id" id="usul_sotk_detail_id">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="jenis_jabatan_id" class="form-label">jenis_jabatan_id</label>
-                </div>
-                <div class="col-lg-9">
-                    <input type="text" class="form-control" id="jenis_jabatan_id" name="jenis_jabatan_id">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="jabatan_fungsional_id" class="form-label">jabatan_fungsional_id</label>
-                </div>
-                <div class="col-lg-9">
-                    <input type="text" class="form-control" id="jabatan_fungsional_id" name="jabatan_fungsional_id">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="jenis_jabatan_umum_id" class="form-label">jenis_jabatan_umum_id</label>
-                </div>
-                <div class="col-lg-9">
-                    <input type="text" class="form-control" id="jenis_jabatan_umum_id" name="jenis_jabatan_umum_id">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="angka_pppk_teknis" class="form-label">angka_pppk_teknis</label>
-                </div>
-                <div class="col-lg-9">
-                    <input type="number" class="form-control" id="angka_pppk_teknis" name="angka_pppk_teknis">
-                </div>
-            </div>
-            <div class="text-end">
-                <span id="infochange"></span>
-                <button type="button" class="btn btn-primary" onclick="changekuota()">Change Kuota</button>
-            </div>
-        </form>
+          <div class="card-body" id="bodysotk">
           </div>
         </div>
-
-        <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="websiteUrl" class="form-label">pendidikan SMA</label>
-                </div>
-                <div class="col-lg-9">
-                    <textarea name="xxx" id="xx" class="form-control" readonly>[{"idx":1,"id":null,"usul_sotk_id":"d9f13001-ad65-412e-a129-d744b40acba8","usul_sotk_detail_id":"xxx","instansi_id":"A5EB03E23BFBF6A0E040640A040252AD","pendidikan_id":"8ae4828947fbda2a01481ad629e5545f","nama_pendidikan":"SLTA/SMA SEDERAJAT","tingkat_pendidikan_id":"15","input_mode":false,"is_saved":false,"mappingPendidikan":null,"status_verifikasi_id":null,"alasan_tolak":null,"verifikator_id":null,"tgl_verval":null}]</textarea>
-                </div>
-            </div>
-        <div class="row mb-3">
-                <div class="col-lg-3">
-                    <label for="websiteUrl" class="form-label">pendidikan S1 Semua Jurusan</label>
-                </div>
-                <div class="col-lg-9">
-                    <textarea name="xxx" id="xx" class="form-control" readonly>[{"idx":1,"id":null,"usul_sotk_id":"d9f13001-ad65-412e-a129-d744b40acba8","usul_sotk_detail_id":"xxx","instansi_id":"A5EB03E23BFBF6A0E040640A040252AD","pendidikan_id":"f1d4d38aea44400eb2883c698ba2cb43","nama_pendidikan":"D-IV SEMUA JURUSAN","tingkat_pendidikan_id":"40","input_mode":false,"is_saved":false,"mappingPendidikan":null,"status_verifikasi_id":"02","alasan_tolak":null,"verifikator_id":"3d2b29a3-447c-46a5-9031-0c96f2bcfea5","tgl_verval":"2024-07-17"},{"idx":2,"id":null,"usul_sotk_id":"d9f13001-ad65-412e-a129-d744b40acba8","usul_sotk_detail_id":"xxx","instansi_id":"A5EB03E23BFBF6A0E040640A040252AD","pendidikan_id":"0E7FA32614D38672E060640AF1083075","nama_pendidikan":"S-1 SEMUA JURUSAN","tingkat_pendidikan_id":"40","input_mode":false,"is_saved":false,"mappingPendidikan":null,"status_verifikasi_id":"02","alasan_tolak":null,"verifikator_id":"3d2b29a3-447c-46a5-9031-0c96f2bcfea5","tgl_verval":"2024-07-17"}]</textarea>
-                </div>
-            </div>
-
-        
       </div>
     </div>
   </main>
@@ -310,30 +229,6 @@
 $(document).ready(function() {
    // Stuff to do as soon as the DOM is ready
 });
-
-function search() {
-    var jabatan = $('#jabatan').val();
-    var penempatan = $('#penempatan').val();
-    var subjabatan = $('#subjabatan').val();
-
-    $('#body').html('Lagi nyari....');
-
-    axios.get('<?= site_url()?>pppk/search/'+jabatan+'/'+penempatan+'/'+subjabatan)
-  .then(function (response) {
-    // handle success
-    console.log(response.data);
-    
-    $('#id').val(response.data.id);
-    $('#usul_sotk_detail_id').val(response.data.usul_sotk_detail_id);
-    $('#jenis_jabatan_id').val(response.data.jenis_jabatan_id);
-    $('#jabatan_fungsional_id').val(response.data.jabatan_fungsional_id);
-    $('#jenis_jabatan_umum_id').val(response.data.jenis_jabatan_umum_id);
-    $('#angka_pppk_teknis').val(response.data.alokasi_formasi);
-  })
-  .finally(function () {
-    
-  });
-}
 
 function searchsotk() {
     var unor = $('#unor').val();
@@ -357,28 +252,6 @@ function searchsotk() {
   });
 }
 
-function changekuota() {
-    $('#infochange').html('Proses....');
-    axios.post('<?= site_url()?>pppk/changekuota', {
-        id: $('#id').val(),
-        pendidikan: $('#pendidikan').val(),
-        usul_sotk_detail_id: $('#usul_sotk_detail_id').val(),
-        jenis_jabatan_id: $('#jenis_jabatan_id').val(),
-        jabatan_fungsional_id: $('#jabatan_fungsional_id').val(),
-        jenis_jabatan_umum_id: $('#jenis_jabatan_umum_id').val(),
-        angka_pppk_teknis: $('#angka_pppk_teknis').val(),
-    })
-    .then(function (response) {
-        console.log(response);
-        alert(response.data.respon_status.status);
-        $('#id').val('');
-        $('#angka_pppk_teknis').val('');
-        $('#infochange').html('Selesai');
-    })
-    .catch(function (error) {
-        console.log(error);
-    });
-}
 </script>
     </body>
 </html>

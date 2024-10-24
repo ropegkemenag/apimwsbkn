@@ -12,6 +12,11 @@ class Pppk extends BaseController
         return view('pppk/index');
     }
 
+    public function sotk()
+    {
+        return view('pppk/ceksotk');
+    }
+
     function search($jabatan,$penempatan,$subjabatan){
         $client = service('curlrequest');
 
@@ -82,14 +87,14 @@ class Pppk extends BaseController
         //     }
         // }
 
-        if($lists->data->records){
-            $child = $this->searchsotkbyatasan($lists->data->records[0]->value);
-            return $this->response->setJSON($child);
-        }else{
-            return $this->response->setJSON(['text'=>'Gak ada. Buatin rinciannya']);
-        }
+        // if($lists->data->records){
+        //     $child = $this->searchsotkbyatasan($lists->data->records[0]->value);
+        //     return $this->response->setJSON($child);
+        // }else{
+        //     return $this->response->setJSON(['text'=>'Gak ada. Buatin rinciannya']);
+        // }
 
-        // return $this->response->setJSON($lists);
+        return $this->response->setJSON($lists);
 
     }
 
@@ -260,6 +265,9 @@ class Pppk extends BaseController
     }
 
     function delete($id) {
-        
+        // https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/hapusRincian
+        // Payload
+        // id: f1e41ab8-267e-4a09-be62-6215e1902211
+        // _method: put
     }
 }
