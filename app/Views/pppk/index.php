@@ -400,7 +400,7 @@ function changekuota() {
 
 function deleterincian() {
     axios.post('<?= site_url()?>pppk/deleterincian', {
-        id: $('#idhapus').val()
+        idhapus: $('#idhapus').val()
     })
     .then(function (response) {
         console.log(response);

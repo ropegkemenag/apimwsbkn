@@ -270,7 +270,7 @@ class Pppk extends BaseController
         // id: f1e41ab8-267e-4a09-be62-6215e1902211
         // _method: put
 
-        $id = $this->request->getVar('id');
+        $id = $this->request->getVar('idhapus');
 
         $response = $client->request('POST', 'https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/hapusRincian', [
             'headers' => [
