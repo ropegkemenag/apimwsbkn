@@ -347,6 +347,7 @@ function search() {
     $('#jabatan_fungsional_id').val(response.data.jabatan_fungsional_id);
     $('#jenis_jabatan_umum_id').val(response.data.jenis_jabatan_umum_id);
     $('#angka_pppk_teknis').val(response.data.alokasi_formasi);
+    $('#pendidikan').val(JSON.stringify(response.data.pendidikan_id));
   })
   .finally(function () {
     
