@@ -46,6 +46,7 @@ $routes->get('perencanaan/search/(:any)/(:any)', 'Perencanaan::search/$1/$2');
 $routes->get('pppk', 'Pppk::index');
 $routes->get('pppk/sotk', 'Pppk::sotk');
 $routes->post('pppk/changekuota', 'Pppk::changekuota');
+$routes->post('pppk/deleterincian', 'Pppk::deleterincian');
 $routes->get('pppk/search/(:any)/(:any)', 'Pppk::search/$1/$2');
 $routes->get('pppk/search/(:any)/(:any)/(:any)', 'Pppk::search/$1/$2/$3');
 $routes->get('pppk/searchunor/(:any)', 'Pppk::searchunor/$1');

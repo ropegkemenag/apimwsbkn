@@ -264,10 +264,30 @@ class Pppk extends BaseController
         
     }
 
-    function delete($id) {
+    function deleterincian($id) {
         // https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/hapusRincian
         // Payload
         // id: f1e41ab8-267e-4a09-be62-6215e1902211
         // _method: put
+
+        $response = $client->request('POST', 'https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/hapusRincian', [
+            'headers' => [
+                'Accept'        => 'application/json',
+                'Content-Type' => 'application/json',
+                'Origin' => 'https://perencanaan-siasn.bkn.go.id',
+                'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
+                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+            ],
+            'form_params' => [
+                'id' => $id,
+                '_method' => 'put'
+            ],
+            'debug' => true,
+            'verify' => false
+        ]);
+
+        $response = json_decode($response->getBody());
+
+        return $this->response->setJSON($response);
     }
 }

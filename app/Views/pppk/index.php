@@ -280,6 +280,24 @@
           </div>
         </div>
 
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-body">
+          <form action="">
+            <div class="row mb-3">
+                <div class="col-lg-3">
+                    <label for="nameInput" class="form-label">id</label>
+                </div>
+                <div class="col-lg-9">
+                    <input type="text" class="form-control" id="idhapus">
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="button" class="btn btn-primary" onclick="deleterincian()">Delete</button>
+            </div>
+        </form>
+          </div>
+        </div>
+
         <div class="row mb-3">
                 <div class="col-lg-3">
                     <label for="websiteUrl" class="form-label">pendidikan SMA</label>
@@ -374,6 +392,19 @@ function changekuota() {
         $('#id').val('');
         $('#angka_pppk_teknis').val('');
         $('#infochange').html('Selesai');
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
+
+function deleterincian() {
+    axios.post('<?= site_url()?>pppk/deleterincian', {
+        id: $('#id').val()
+    })
+    .then(function (response) {
+        console.log(response);
+        alert(response.data.respon_status.status);
     })
     .catch(function (error) {
         console.log(error);
