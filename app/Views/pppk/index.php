@@ -191,7 +191,7 @@
             <label class="visually-hidden" for="specificSizeInputName">Jabatan</label>
             <select name="jabatan" class="form-select" id="jabatan">
                 <option value="ff80808132b9d98c0132cd178bc8056e">Guru Ahli Pertama</option>
-                <option value="ff80808132b9d98c0132cd178bc8056e">PENYULUH AGAMA AHLI PERTAMA</option>
+                <option value="A5EB03E23E37F6A0E040640A040252AD">PENYULUH AGAMA AHLI PERTAMA</option>
                 <option value="6f6c8805d5284da79b9e12b0fae5f882">Operator Layanan Operasional</option>
                 <option value="F426F8A44B17A8BDE050640AF2083B83">Penata Layanan Operasional</option>
                 <option value="8ae482884fde72e4014fdf1f1abe3f3c">Pengadministrasi Perkantoran</option>
@@ -232,7 +232,6 @@
                 </div>
                 <div class="col-lg-9">
                     <textarea name="pendidikan" id="pendidikan" class="form-control"></textarea>
-                    <pre id="jsonedit" class="json-container" style="height: 200px;"></pre>
                 </div>
             </div>
             <div class="row mb-3">
@@ -326,8 +325,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
-<script src=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/pretty-print-json.min.js></script>
-
 
 <script>
 $(document).ready(function() {
@@ -353,8 +350,7 @@ function search() {
     $('#jenis_jabatan_umum_id').val(response.data.jenis_jabatan_umum_id);
     $('#angka_pppk_teknis').val(response.data.alokasi_formasi);
     $('#pendidikan').val(JSON.stringify(response.data.pendidikan_id));
-    $('#jsonedit').html(prettyPrintJson.toHtml(response.data.pendidikan_id,{quoteKeys:true}));
-  })
+})
   .finally(function () {
     
   });
