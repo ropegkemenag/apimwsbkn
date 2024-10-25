@@ -255,11 +255,11 @@ class Pppk extends BaseController
             'verify' => false
         ]);
 
-        // print_r($response->getBody());
+        print_r($response->getBody());
 
-        $response = json_decode($response->getBody());
+        // $response = json_decode($response->getBody());
 
-        return $this->response->setJSON($response);
+        // return $this->response->setJSON($response);
     }
 
     function changependidikan($id) {

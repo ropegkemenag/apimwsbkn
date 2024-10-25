@@ -223,7 +223,7 @@
                     <label for="nameInput" class="form-label">id</label>
                 </div>
                 <div class="col-lg-9">
-                    <input type="text" class="form-control" id="id">
+                    <input type="text" class="form-control" id="idrincian">
                 </div>
             </div>
             <div class="row mb-3">
@@ -343,7 +343,7 @@ function search() {
     // handle success
     console.log(response.data);
     
-    $('#id').val(response.data.id);
+    $('#idrincian').val(response.data.id);
     $('#usul_sotk_detail_id').val(response.data.usul_sotk_detail_id);
     $('#jenis_jabatan_id').val(response.data.jenis_jabatan_id);
     $('#jabatan_fungsional_id').val(response.data.jabatan_fungsional_id);
@@ -381,7 +381,7 @@ function searchsotk() {
 function changekuota() {
     $('#infochange').html('Proses....');
     axios.post('<?= site_url()?>pppk/changekuota', {
-        id: $('#id').val(),
+        id: $('#idrincian').val(),
         pendidikan: $('#pendidikan').val(),
         usul_sotk_detail_id: $('#usul_sotk_detail_id').val(),
         jenis_jabatan_id: $('#jenis_jabatan_id').val(),
