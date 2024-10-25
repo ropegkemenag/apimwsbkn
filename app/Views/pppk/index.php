@@ -417,12 +417,13 @@ function changekuota() {
         jabatan_fungsional_id: $('#jabatan_fungsional_id').val(),
         jenis_jabatan_umum_id: $('#jenis_jabatan_umum_id').val(),
         angka_pppk_teknis: $('#angka_pppk_teknis').val(),
+        angka_pppk_guru: $('#angka_pppk_guru').val(),
+        angka_pppk_nakes: $('#angka_pppk_nakes').val(),
     })
     .then(function (response) {
         console.log(response);
         alert(response.data.respon_status.status);
         $('#id').val('');
-        $('#angka_pppk_teknis').val('');
         $('#infochange').html('Selesai');
     })
     .catch(function (error) {
