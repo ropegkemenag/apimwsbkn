@@ -41,6 +41,7 @@ $routes->get('pengadaan/dokumen', 'Pengadaan::dokumen');
 $routes->get('perencanaan/formasi', 'Perencanaan::formasi');
 $routes->get('perencanaan/storedb', 'Perencanaan::storedb');
 $routes->get('perencanaan/search/(:any)/(:any)', 'Perencanaan::search/$1/$2');
+$routes->get('perencanaan/getsubjabatan/(:any)/(:any)', 'Perencanaan::getsubjabatan/$1/$2');
 
 // Perencanaan PPPK
 $routes->get('pppk', 'Pppk::index');
