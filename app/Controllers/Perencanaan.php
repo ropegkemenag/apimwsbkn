@@ -228,6 +228,6 @@ class Perencanaan extends BaseController
                 }
             }
 
-        return $formasinya->nama_sub_jabatan;
+        return $this->response->setJSON($formasinya->nama_sub_jabatan);
     }
 }
