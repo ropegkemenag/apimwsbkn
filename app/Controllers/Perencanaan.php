@@ -182,7 +182,7 @@ class Perencanaan extends BaseController
 
     }
 
-    public function getsubjabatan($id_formasi, $usul_sotk_detail_id)
+    public function getsubjabatanx($id_formasi, $usul_sotk_detail_id)
     {
         $curl = curl_init();
 
@@ -229,5 +229,40 @@ class Perencanaan extends BaseController
             }
 
         return $this->response->setJSON($formasinya->nama_sub_jabatan);
+    }
+
+    public function getsubjabatan($id_formasi, $usul_sotk_detail_id)
+    {
+        // https://api-sscasn.bkn.go.id/2024/dashboard/cpns/statistik?pengadaan_kd=
+        $client = service('curlrequest');
+
+        $response = $client->request('GET', 'https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail', [
+            'headers' => [
+                'Accept'        => 'application/json',
+                'Content-Type' => 'application/json',
+                'Origin' => 'https://dashboard-sscasn.bkn.go.id',
+                'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
+                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+            ],
+            'query' => [
+                'usul_sotk_id' => 'd9f13001-ad65-412e-a129-d744b40acba8',
+                'usul_sotk_detail_id' => $usul_sotk_detail_id,
+                'usul_rincian_formasi_id' => '3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
+                'page' => 1,
+            ],
+            'debug' => true,
+            'verify' => false
+        ]);
+
+        $lists = json_decode($response->getBody());
+
+        foreach($lists->data->records as $row){
+            if($row->id == $id_formasi){
+                return $this->response->setJSON($row);
+                exit;
+            }
+        }
+
+        echo 'Tidak ditemukan';
     }
 }
