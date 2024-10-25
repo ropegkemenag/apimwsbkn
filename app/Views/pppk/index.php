@@ -274,9 +274,25 @@
                     <input type="number" class="form-control" id="angka_pppk_teknis" name="angka_pppk_teknis">
                 </div>
             </div>
+            <div class="row mb-3">
+                <div class="col-lg-3">
+                    <label for="angka_pppk_guru" class="form-label">angka_pppk_guru</label>
+                </div>
+                <div class="col-lg-9">
+                    <input type="number" class="form-control" id="angka_pppk_guru" name="angka_pppk_guru">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-lg-3">
+                    <label for="angka_pppk_nakes" class="form-label">angka_pppk_nakes</label>
+                </div>
+                <div class="col-lg-9">
+                    <input type="number" class="form-control" id="angka_pppk_nakes" name="angka_pppk_nakes">
+                </div>
+            </div>
             <div class="text-end">
                 <span id="infochange"></span>
-                <button type="button" class="btn btn-primary" onclick="changekuota()">Change Kuota</button>
+                <button type="button" class="btn btn-primary" onclick="changekuota()">Ubah</button>
             </div>
         </form>
           </div>
@@ -337,6 +353,9 @@ function search() {
     var subjabatan = $('#subjabatan').val();
 
     $('#body').html('Lagi nyari....');
+    $('#angka_pppk_teknis').val(0);
+    $('#angka_pppk_guru').val(0);
+    $('#angka_pppk_nakes').val(0);
 
     axios.get('<?= site_url()?>pppk/search/'+jabatan+'/'+penempatan+'/'+subjabatan)
   .then(function (response) {
@@ -348,8 +367,18 @@ function search() {
     $('#jenis_jabatan_id').val(response.data.jenis_jabatan_id);
     $('#jabatan_fungsional_id').val(response.data.jabatan_fungsional_id);
     $('#jenis_jabatan_umum_id').val(response.data.jenis_jabatan_umum_id);
-    $('#angka_pppk_teknis').val(response.data.alokasi_formasi);
+    // $('#angka_pppk_teknis').val(response.data.alokasi_formasi);
+    // $('#angka_pppk_guru').val(response.data.alokasi_formasi);
+    // $('#angka_pppk_nakes').val(response.data.alokasi_formasi);
     $('#pendidikan').val(JSON.stringify(response.data.pendidikan_id));
+
+    if(response.data.jenis_jabatan_umum_id == 1){
+        $('#angka_pppk_guru').val(response.data.alokasi_formasi);
+    }else if(response.data.jenis_jabatan_umum_id == 2){
+        $('#angka_pppk_teknis').val(response.data.alokasi_formasi);
+    }else if(response.data.jenis_jabatan_umum_id == 3){
+        $('#angka_pppk_nakes').val(response.data.alokasi_formasi);
+    }
 })
   .finally(function () {
     

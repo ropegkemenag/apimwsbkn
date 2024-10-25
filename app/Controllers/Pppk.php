@@ -203,8 +203,48 @@ class Pppk extends BaseController
         $jabatan_fungsional_id = $this->request->getVar('jabatan_fungsional_id');
         $jenis_jabatan_umum_id = $this->request->getVar('jenis_jabatan_umum_id');
         $angka_pppk_teknis = $this->request->getVar('angka_pppk_teknis');
+        $angka_pppk_guru = $this->request->getVar('angka_pppk_guru');
+        $angka_pppk_nakes = $this->request->getVar('angka_pppk_nakes');
 
         $pendidikan = str_replace("xxx", $usdid, $pendidikan);
+
+        $params = [
+            'id' => $id,
+            'penghasilan_min' => '2500000',
+            'penghasilan_max' => '7000000',
+            'pendidikan' => $pendidikan,
+            'usul_sotk_id' => 'd9f13001-ad65-412e-a129-d744b40acba8',
+            'usul_sotk_detail_id' => $usdid,
+            'instansi_id' => 'A5EB03E23BFBF6A0E040640A040252AD',
+            'usul_rincian_formasi_id' => '3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
+            'jenis_jabatan_id' => $jenis_jabatan_id,
+            'jabatan_fungsional_id' => $jabatan_fungsional_id,
+            'kebutuhan_pegawai' => '5',
+            'bezetting_pppk' => '1',
+            'mappingPendidikan' => '1',
+            'prediksi_pensiun_pppk' => '0',
+            'bezetting_cpns' => '0',
+            'pembina_id' => 'null',
+            'prediksi_pensiun_cpns' => '0',
+            'jenis_asn_id' => '02',
+            'jenis_jabatan_umum_id' => $jenis_jabatan_umum_id,
+            'angka_pppk_guru' => $angka_pppk_guru,
+            'angka_pppk_nakes' => $angka_pppk_nakes,
+            'angka_pppk_teknis' => $angka_pppk_teknis,
+            'angka_cpns_guru' => '0',
+            'angka_cpns_nakes' => '0',
+            'angka_cpns_teknis' => '0',
+            'cpns_guru' => '6992',
+            'cpns_teknis' => '13780',
+            'cpns_nakes' => '0',
+            'cpns_total' => '20772',
+            'pppk_guru' => '19437',
+            'pppk_teknis' => '69842',
+            'pppk_nakes' => '502',
+            'pppk_total' => '89781',
+            'perbaikan_menpan' => '1',
+            '_method' => 'put'
+        ];
 
         $response = $client->request('POST', 'https://perencanaan-siasn.bkn.go.id/api/usul_anjab/usul_rincian_formasi_detail/updateRincian', [
             'headers' => [
@@ -214,52 +254,17 @@ class Pppk extends BaseController
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
                 'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
             ],
-            'form_params' => [
-                'id' => $id,
-                'penghasilan_min' => '2500000',
-                'penghasilan_max' => '7000000',
-                'pendidikan' => $pendidikan,
-                'usul_sotk_id' => 'd9f13001-ad65-412e-a129-d744b40acba8',
-                'usul_sotk_detail_id' => $usdid,
-                'instansi_id' => 'A5EB03E23BFBF6A0E040640A040252AD',
-                'usul_rincian_formasi_id' => '3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'jenis_jabatan_id' => $jenis_jabatan_id,
-                'jabatan_fungsional_id' => $jabatan_fungsional_id,
-                'kebutuhan_pegawai' => '5',
-                'bezetting_pppk' => '1',
-                'mappingPendidikan' => '1',
-                'prediksi_pensiun_pppk' => '0',
-                'bezetting_cpns' => '0',
-                'pembina_id' => 'null',
-                'prediksi_pensiun_cpns' => '0',
-                'jenis_asn_id' => '02',
-                'jenis_jabatan_umum_id' => $jenis_jabatan_umum_id,
-                'angka_pppk_guru' => 0,
-                'angka_pppk_nakes' => 0,
-                'angka_pppk_teknis' => $angka_pppk_teknis,
-                'angka_cpns_guru' => '0',
-                'angka_cpns_nakes' => '0',
-                'angka_cpns_teknis' => '0',
-                'cpns_guru' => '6992',
-                'cpns_teknis' => '13780',
-                'cpns_nakes' => '0',
-                'cpns_total' => '20772',
-                'pppk_guru' => '19437',
-                'pppk_teknis' => '69842',
-                'pppk_nakes' => '502',
-                'pppk_total' => '89781',
-                'perbaikan_menpan' => '1',
-                '_method' => 'put'
-            ],
+            'form_params' => $params,
             'debug' => true,
             'verify' => false
         ]);
 
-        print_r($response->getBody());
+        // print_r($params);
+        // print_r($response->getBody());
 
-        // $response = json_decode($response->getBody());
+        $response = json_decode($response->getBody());
 
-        // return $this->response->setJSON($response);
+        return $this->response->setJSON($response);
     }
 
     function changependidikan($id) {
