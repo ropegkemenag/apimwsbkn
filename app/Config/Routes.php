@@ -43,6 +43,9 @@ $routes->get('perencanaan/storedb', 'Perencanaan::storedb');
 $routes->get('perencanaan/search/(:any)/(:any)', 'Perencanaan::search/$1/$2');
 $routes->get('perencanaan/getsubjabatan/(:any)/(:any)', 'Perencanaan::getsubjabatan/$1/$2');
 
+$routes->get('sscasn', 'Sscasn::index');
+$routes->post('sscasn/saveuser', 'Sscasn::saveuser');
+
 // Perencanaan PPPK
 $routes->get('pppk', 'Pppk::index');
 $routes->get('pppk/sotk', 'Pppk::sotk');
