@@ -408,7 +408,7 @@
         if($userid == ''){
           alert('userId tidak boleh kosong');
         }else{
-          axios.get('<?= site_url()?>ajax/sscasn/'+$userid)
+          axios.get('<?= site_url()?>sscasn/getunor/'+$userid)
           .then(function (response) {
             console.log(response.data);
             $.each(response.data, function( index, value ) {

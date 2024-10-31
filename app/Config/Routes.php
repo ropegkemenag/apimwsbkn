@@ -44,6 +44,8 @@ $routes->get('perencanaan/search/(:any)/(:any)', 'Perencanaan::search/$1/$2');
 $routes->get('perencanaan/getsubjabatan/(:any)/(:any)', 'Perencanaan::getsubjabatan/$1/$2');
 
 $routes->get('sscasn', 'Sscasn::index');
+$routes->get('sscasn/getuser', 'Sscasn::getuser');
+$routes->get('sscasn/getunor/(:any)', 'Sscasn::getunor/$1');
 $routes->post('sscasn/saveuser', 'Sscasn::saveuser');
 
 // Perencanaan PPPK
@@ -56,5 +58,6 @@ $routes->get('pppk/search/(:any)/(:any)/(:any)', 'Pppk::search/$1/$2/$3');
 $routes->get('pppk/searchunor/(:any)', 'Pppk::searchunor/$1');
 $routes->get('pppk/searchsotk/(:any)/(:any)/(:any)', 'Pppk::searchsotk/$1/$2/$3');
 $routes->get('pppk/searchsotkbyatasan/(:any)', 'Pppk::searchsotkbyatasan/$1');
-$routes->get('pppk/sotkdetail/(:any)', 'Pppk::sotkdetail/$1');
+
+$routes->get('notifikasi/pppk', 'Notification::reportpppk');
 
