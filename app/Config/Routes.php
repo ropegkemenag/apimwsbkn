@@ -12,6 +12,8 @@ $routes->get('auth', 'Auth::index');
 $routes->get('auth/token', 'Auth::getAuth');
 $routes->get('auth/authorization', 'Auth::getAuthorization');
 
+$routes->get('auth/cache', 'Auth::cache');
+
 $routes->cli('auth/token', 'Auth::getAuth');
 $routes->cli('auth/authorization', 'Auth::getAuthorization');
 

@@ -35,7 +35,7 @@ class Auth extends BaseController
         
         $cache = service('cache');
         $set = $cache->save('auth.token',$response->access_token,3600);
-        echo $response->access_token;
+        echo '';
     }
 
     public function getAuthorization()
@@ -55,5 +55,18 @@ class Auth extends BaseController
         $cache = service('cache');
         $set = $cache->save('oauth2.token',$response->access_token,3600);
         echo 'Done';
+    }
+
+    function cache() {
+        $cache = service('cache');
+        $auth = $cache->get('auth.token');
+        $oauth2 = $cache->get('oauth2.token');
+
+        $data = [
+            'auth' => $auth,
+            'oauth2' => $oauth2
+        ];
+
+        return $this->response->setJSON($data);
     }
 }

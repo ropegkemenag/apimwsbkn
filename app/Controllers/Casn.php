@@ -61,7 +61,7 @@ class Casn extends BaseController
         // https://api-sscasn.bkn.go.id/2024/dashboard/cpns/statistik?pengadaan_kd=
         $client = service('curlrequest');
 
-        $response = $client->request('GET', 'https://api-sscasn.bkn.go.id/'.$tahun.'/dashboard/cpns-new', [
+        $response = $client->request('GET', 'https://api-sscasn.bkn.go.id/'.$tahun.'/dashboard/pppk', [
             'headers' => [
                 'Accept'        => 'application/json',
                 'Content-Type' => 'application/json',
