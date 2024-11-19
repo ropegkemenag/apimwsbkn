@@ -14,27 +14,27 @@ class Auth extends BaseController
 
     public function getAuth()
     {
-        $client = service('curlrequest');
+        // $client = service('curlrequest');
 
-        $response = $client->request('POST', getenv('wso.auth.url'), [
-            'form_params' => [
-                'client_id'     => getenv('wso.auth.clientid'),
-                'grant_type'    => 'password',
-                'username'      => getenv('wso.auth.username'),
-                'password'      => getenv('wso.auth.password'),
-            ],
-            'headers' => [
-                'Content-Type' => 'application/x-www-form-urlencoded'
-            ],
-            'verify' => false,
-            'debug' => true
-        ]);
+        // $response = $client->request('POST', getenv('wso.auth.url'), [
+        //     'form_params' => [
+        //         'client_id'     => getenv('wso.auth.clientid'),
+        //         'grant_type'    => 'password',
+        //         'username'      => getenv('wso.auth.username'),
+        //         'password'      => getenv('wso.auth.password'),
+        //     ],
+        //     'headers' => [
+        //         'Content-Type' => 'application/x-www-form-urlencoded'
+        //     ],
+        //     'verify' => false,
+        //     'debug' => true
+        // ]);
 
-        $response = json_decode($response->getBody());
+        // $response = json_decode($response->getBody());
 
         
-        $cache = service('cache');
-        $set = $cache->save('auth.token',$response->access_token,3600);
+        // $cache = service('cache');
+        // $set = $cache->save('auth.token',$response->access_token,3600);
         echo '';
     }
 
