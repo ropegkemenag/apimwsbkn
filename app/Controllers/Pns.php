@@ -58,8 +58,7 @@ class Pns extends BaseController
         $cache = service('cache');
 
         $pns = $this->datautama($nip)->getBody();
-        print_r($pns);
-        return false;
+        
         $idpns = $pns->data->id;
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/photo/'.$idpns, [
