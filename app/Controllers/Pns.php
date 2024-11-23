@@ -27,7 +27,8 @@ class Pns extends BaseController
             'verify' => false
         ]);
 
-        echo $response->getBody();
+        // echo $response->getBody();
+        return $this->response->setJSON($response->getBody());
     }
     
     public function ipasn($nip)
@@ -38,6 +39,29 @@ class Pns extends BaseController
         $cache = service('cache');
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/nilaiipasn/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        // echo $response->getBody();
+        return $this->response->setJSON($response->getBody());
+    }
+    
+    public function photo($nip)
+    {
+        // GET /pns/data-utama/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $pns = $this->datautama($nip);
+        
+        $idpns = $pns->data->id;
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/photo/'.$idpns, [
             'headers' => [
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
