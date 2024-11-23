@@ -12,7 +12,7 @@ class Auth extends BaseController
         return view('auth');
     }
 
-    public function getAuth()
+    public function Auth()
     {
         // $client = service('curlrequest');
 
@@ -38,7 +38,7 @@ class Auth extends BaseController
         // echo '';
     }
 
-    public function getAuthorization()
+    public function Authorization()
     {
         $client = service('curlrequest');
 

@@ -29,4 +29,22 @@ class Pns extends BaseController
 
         echo $response->getBody();
     }
+    
+    public function ipasn($nip)
+    {
+        // GET /pns/data-utama/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/nilaiipasn/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        echo $response->getBody();
+    }
 }
