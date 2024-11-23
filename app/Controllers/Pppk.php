@@ -26,7 +26,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'usul_rincian_formasi_id' => '3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
@@ -68,7 +68,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'usul_sotk_id' => 'd9f13001-ad65-412e-a129-d744b40acba8',
@@ -107,7 +107,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'usul_rincian_formasi_id' => '3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
@@ -135,7 +135,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'usul_sotk_id' => 'd9f13001-ad65-412e-a129-d744b40acba8',
@@ -159,7 +159,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://perencanaan-sscasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'debug' => true,
             'verify' => false
@@ -179,7 +179,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://perencanaan-siasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'usul_rincian_formasi_id' => '3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
@@ -252,7 +252,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://perencanaan-siasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'form_params' => $params,
             'debug' => true,
@@ -287,7 +287,7 @@ class Pppk extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://perencanaan-siasn.bkn.go.id',
                 'referer' => 'https://perencanaan-siasn.bkn.go.id/pengelolaan/verval-perbaikan-update-rincian-formasi-menpan/d9f13001-ad65-412e-a129-d744b40acba8/3a6b38a7-ec6c-4faf-ad0c-7498208d72fb',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'form_params' => [
                 'id' => $id,

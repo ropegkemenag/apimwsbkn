@@ -24,7 +24,7 @@ class Casn extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://dashboard-sscasn.bkn.go.id/',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'debug' => true,
             'verify' => false
@@ -44,7 +44,7 @@ class Casn extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://dashboard-sscasn.bkn.go.id/',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'pengadaan_kd' => 3
@@ -67,7 +67,7 @@ class Casn extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://dashboard-sscasn.bkn.go.id/',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'offset' => $offset,

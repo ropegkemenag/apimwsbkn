@@ -23,7 +23,7 @@ class Kp extends BaseController
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/list-kp-instansi', [
             'headers' => [
                 'accept'            => 'application/json',
-                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'query' => ['periode' => $periode],
@@ -102,7 +102,7 @@ class Kp extends BaseController
 
         $response = $client->request('GET', 'https://api-siasn.bkn.go.id/siasn-instansi/kp/usulan/get-log/'.$id, [
             'headers' => [
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
                 'Accept'        => 'application/json',
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://siasn-instansi.bkn.go.id',

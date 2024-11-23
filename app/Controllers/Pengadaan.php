@@ -15,7 +15,7 @@ class Pengadaan extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pengadaan/list-pengadaan-instansi', [
             'headers' => [
-                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'query' => ['tahun'=>2024],
@@ -34,7 +34,7 @@ class Pengadaan extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'//pengadaan/dokumen-pengadaan', [
             'headers' => [
-                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false,

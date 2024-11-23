@@ -54,7 +54,7 @@ Updated at: '.$pppk->data->updated_at.'
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://dashboard-sscasn.bkn.go.id',
                 'referer' => 'https://dashboard-sscasn.bkn.go.id/',
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'query' => [
                 'pengadaan_kd' => 3

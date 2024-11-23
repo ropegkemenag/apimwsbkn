@@ -21,7 +21,7 @@ class Pns extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/data-utama/'.$nip, [
             'headers' => [
-                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false
