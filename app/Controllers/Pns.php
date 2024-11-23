@@ -57,7 +57,7 @@ class Pns extends BaseController
         $client = service('curlrequest');
         $cache = service('cache');
 
-        $pns = $this->datautama($nip);
+        $pns = $this->datautama($nip)->getBody();
         print_r($pns);
         return false;
         $idpns = $pns->data->id;
