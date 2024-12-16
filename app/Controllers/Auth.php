@@ -59,7 +59,7 @@ class Auth extends BaseController
 
     function cache() {
         $cache = service('cache');
-        $auth = getenv('wso.oauth.token');
+        $auth = getenv('wso.auth.token');
         $oauth2 = $cache->get('oauth2.token');
 
         $data = [
