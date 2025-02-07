@@ -22,13 +22,13 @@ class Anomali extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://siasn-instansi.bkn.go.id',
                 'referer' => 'https://siasn-instansi.bkn.go.id/tampilanData',
-                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token2'),
             ],
             'debug' => true,
             'verify' => false
         ]);
 
-        return $response->getBody();
+        return $this->response->setJSON($response->getBody());
     }
 
     public function delete($id)
