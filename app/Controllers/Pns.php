@@ -21,7 +21,8 @@ class Pns extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/data-utama/'.$nip, [
             'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                // 'Auth'              => 'bearer '.service('cache')->get('auth.token'),
+                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false
@@ -40,7 +41,8 @@ class Pns extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/nilaiipasn/'.$nip, [
             'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                // 'Auth'              => 'bearer '.service('cache')->get('auth.token'),
+                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false
@@ -63,7 +65,7 @@ class Pns extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/photo/'.$idpns, [
             'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false
@@ -81,7 +83,7 @@ class Pns extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/data-pasangan/'.$nip, [
             'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false
@@ -99,7 +101,7 @@ class Pns extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/data-anak/'.$nip, [
             'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false
@@ -117,7 +119,7 @@ class Pns extends BaseController
 
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/data-ortu/'.$nip, [
             'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Auth'              => 'bearer '.service('cache')->get('auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
             'verify' => false

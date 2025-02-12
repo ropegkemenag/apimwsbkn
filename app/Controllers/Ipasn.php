@@ -23,7 +23,7 @@ class Ipasn extends BaseController
                 'Content-Type' => 'application/json',
                 'Origin' => 'https://siasn-instansi.bkn.go.id',
                 'referer' => 'https://siasn-instansi.bkn.go.id/layananIP/nilaiASN',
-                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
             ],
             'debug' => true,
             'verify' => false
