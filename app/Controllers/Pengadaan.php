@@ -32,10 +32,27 @@ class Pengadaan extends BaseController
         $client = service('curlrequest');
         $cache = service('cache');
 
-        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'//pengadaan/dokumen-pengadaan', [
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pengadaan/dokumen-pengadaan', [
             'headers' => [
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false,
+            'debug' => true,
+        ]);
+
+        echo $response->getBody();
+    }
+
+    public function monitoring($id)
+    {
+        // Penetapan NIP
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', 'https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring/log/'.$id, [
+            'headers' => [
+                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'verify' => false,
             'debug' => true,
