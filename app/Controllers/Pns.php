@@ -50,18 +50,18 @@ class Pns extends BaseController
         return $this->response->setJSON($response->getBody());
     }
     
-    public function photo($nip)
+    public function photo($id)
     {
         // GET /pns/data-utama/{nipBaru}
 
         $client = service('curlrequest');
-        $cache = service('cache');
+        // $cache = service('cache');
 
-        $pns = $this->datautama($nip)->getBody();
+        // $pns = $this->datautama($id)->getBody();
         
-        $idpns = $pns->data->id;
+        // $idpns = $pns->data->id;
 
-        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/photo/'.$idpns, [
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/photo/'.$id, [
             'headers' => [
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
