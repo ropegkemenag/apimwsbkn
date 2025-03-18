@@ -12,6 +12,40 @@ class Riwayat extends BaseController
         //
     }
 
+    function jabatan($nip) {
+        // GET /pns/rw-jabatan/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-jabatan/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
+    function golongan($nip) {
+        // GET /pns/rw-golongan/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-golongan/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
     public function pendidikan($nip)
     {
         // GET /pns/rw-pendidikan/{nipBaru}

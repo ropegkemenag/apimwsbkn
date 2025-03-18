@@ -52,6 +52,26 @@ class Pengadaan extends BaseController
 
         $response = $client->request('GET', 'https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring/log/'.$id, [
             'headers' => [
+                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+            ],
+            'verify' => false,
+            'debug' => true,
+        ]);
+
+        echo $response->getBody();
+    }
+
+    function siasn($tahun,$jenis) {
+        // https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring?no_peserta=&nama=&tgl_usulan=&jenis_pengadaan_id=01&jenis_formasi_id=&status_usulan=&periode=2024&limit=10&offset=0
+    
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $limit = 10;
+        $offset = 0;
+
+        $response = $client->request('GET', 'https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring?jenis_pengadaan_id='.$jenis.'&status_usulan=&periode='.$tahun.'&limit='.$limit.'&offset='.$offset, [
+            'headers' => [
                 'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
             ],
             'verify' => false,
