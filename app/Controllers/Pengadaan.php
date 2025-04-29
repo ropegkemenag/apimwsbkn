@@ -7,7 +7,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 
 class Pengadaan extends BaseController
 {
-    public function list()
+    public function list($tahun,$limit,$offset)
     {
         // Penetapan NIP
         $client = service('curlrequest');
@@ -18,7 +18,7 @@ class Pengadaan extends BaseController
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
             ],
-            'query' => ['tahun'=>2024],
+            'query' => ['tahun'=>$tahun,'limit'=>$limit,'offset'=>$offset],
             'verify' => false,
             'debug' => true,
         ]);
@@ -52,7 +52,7 @@ class Pengadaan extends BaseController
 
         $response = $client->request('GET', 'https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring/log/'.$id, [
             'headers' => [
-                'Authorization'     => 'Bearer '.service('cache')->get('auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.tokentest'),
             ],
             'verify' => false,
             'debug' => true,
@@ -72,7 +72,7 @@ class Pengadaan extends BaseController
 
         $response = $client->request('GET', 'https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring?jenis_pengadaan_id='.$jenis.'&status_usulan=&periode='.$tahun.'&limit='.$limit.'&offset='.$offset, [
             'headers' => [
-                'Authorization'     => 'Bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.getenv('wso.auth.tokentest'),
             ],
             'verify' => false,
             'debug' => true,
