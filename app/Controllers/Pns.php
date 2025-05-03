@@ -126,4 +126,89 @@ class Pns extends BaseController
         return $this->response->setJSON($response->getBody());
     }
 
+    function golongan($nip) {
+        // GET /pns/rw-golongan/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-golongan/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
+    function jabatan($nip) {
+        // GET /pns/rw-jabatan/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-jabatan/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
+    function pendidikan($nip) {
+        // GET /pns/rw-pendidikan/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-pendidikan/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
+    function diklat($nip) {
+        // GET /pns/rw-diklat/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-diklat/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
+    function kinerjaperiodik($nip) {
+        // GET /pns/rw-kinerjaperiodik/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-kinerjaperiodik/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
 }

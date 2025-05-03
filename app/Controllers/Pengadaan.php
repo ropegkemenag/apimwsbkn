@@ -61,14 +61,14 @@ class Pengadaan extends BaseController
         echo $response->getBody();
     }
 
-    function siasn($tahun,$jenis) {
+    function siasn($tahun,$jenis,$limit,$offset) {
         // https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring?no_peserta=&nama=&tgl_usulan=&jenis_pengadaan_id=01&jenis_formasi_id=&status_usulan=&periode=2024&limit=10&offset=0
     
         $client = service('curlrequest');
         $cache = service('cache');
 
-        $limit = 10;
-        $offset = 0;
+        // $limit = 10;
+        // $offset = 0;
 
         $response = $client->request('GET', 'https://api-siasn.bkn.go.id/siasn-instansi/pengadaan/usulan/monitoring?jenis_pengadaan_id='.$jenis.'&status_usulan=&periode='.$tahun.'&limit='.$limit.'&offset='.$offset, [
             'headers' => [
@@ -78,6 +78,26 @@ class Pengadaan extends BaseController
             'debug' => true,
         ]);
 
-        echo $response->getBody();
+        // echo $response->getBody();
+        return $this->response->setJSON( $response->getBody() );
+    }
+
+    function usulan($tahun,$jenis,$limit,$offset) {
+        
+        $usulan = $this->siasn($tahun,$jenis,$limit,$offset);
+        // $usulan = json_decode($usulan, true);
+        // $usulan = $usulan['data'];
+
+        $datas = json_decode($usulan->getBody());
+        $meta = $datas->meta;
+        $data = $datas->data;
+        $page = $datas->page;
+
+        $total = $meta->total;
+        // $totalPage = ceil($total / $limit);
+        // $nextPage = $page + 1;
+        
+        echo $total;
+        
     }
 }
