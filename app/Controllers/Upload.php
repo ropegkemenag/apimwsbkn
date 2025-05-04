@@ -12,9 +12,21 @@ class Upload extends BaseController
         //
     }
 
-    public function download()
+    public function download($filePath)
     {
         // GET /download-dok
+        $client = service('curlrequest');
+        $cache = service('cache');
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/download-dok?filePath='.$filePath, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false,
+            'debug' => true,
+        ]);
+        echo $response->getBody();
+        // return $this->response->setJSON($response->getBody());
     }
 
     public function dok()
