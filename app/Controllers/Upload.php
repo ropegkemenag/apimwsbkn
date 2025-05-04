@@ -15,7 +15,7 @@ class Upload extends BaseController
     public function download()
     {
         // GET /download-dok
-        $path = $this->request->getGet('path');
+        $path = decrypt($this->request->getGet('path'));
         $fname = $this->request->getGet('fname');
         $client = service('curlrequest');
         $cache = service('cache');
