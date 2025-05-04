@@ -16,6 +16,7 @@ class Upload extends BaseController
     {
         // GET /download-dok
         $path = $this->request->getGet('path');
+        $fname = $this->request->getGet('fname');
         $client = service('curlrequest');
         $cache = service('cache');
         $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/download-dok?filePath='.$path, [
@@ -28,7 +29,7 @@ class Upload extends BaseController
         ]);
         // echo $response->getBody();
         // return $this->response->setJSON($response->getBody());
-        return $this->response->download('SPRP.pdf', $response->getBody());
+        return $this->response->download($fname, $response->getBody());
     }
 
     public function dok()
