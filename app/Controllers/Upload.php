@@ -27,7 +27,8 @@ class Upload extends BaseController
             'debug' => true,
         ]);
         // echo $response->getBody();
-        return $this->response->setJSON($response->getBody());
+        // return $this->response->setJSON($response->getBody());
+        return $this->response->download('SPRP', $response->getBody())->inline();
     }
 
     public function dok()
