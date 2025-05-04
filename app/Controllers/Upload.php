@@ -28,7 +28,7 @@ class Upload extends BaseController
         ]);
         // echo $response->getBody();
         // return $this->response->setJSON($response->getBody());
-        return $this->response->download($response->getBody())->setFileName('SPRP.pdf');
+        return $this->response->download('SPRP.pdf', $response->getBody());
     }
 
     public function dok()
