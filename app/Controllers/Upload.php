@@ -25,8 +25,8 @@ class Upload extends BaseController
             'verify' => false,
             'debug' => true,
         ]);
-        echo $response->getBody();
-        // return $this->response->setJSON($response->getBody());
+        // echo $response->getBody();
+        return $this->response->setJSON($response->getBody());
     }
 
     public function dok()
