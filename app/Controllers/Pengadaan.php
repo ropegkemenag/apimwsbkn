@@ -142,7 +142,6 @@ class Pengadaan extends BaseController
                 'jabatan_fungsional_nama' => $row->usulan_data->data->jabatan_fungsional_nama,
                 'jabatan_fungsional_umum_id' => $row->usulan_data->data->jabatan_fungsional_umum_id,
                 'jabatan_fungsional_umum_nama' => $row->usulan_data->data->jabatan_fungsional_umum_nama,
-                'jabatan_struktural_nama' => $row->usulan_data->data->jabatan_struktural_nama,
                 'jenis_jabatan_id' => $row->usulan_data->data->jenis_jabatan_id,
                 'jenis_jabatan_nama' => $row->usulan_data->data->jenis_jabatan_nama,
                 'jenis_masa_kerja' => $row->usulan_data->data->jenis_masa_kerja,
