@@ -211,4 +211,38 @@ class Pns extends BaseController
         return $this->response->setJSON($response->getBody());
     }
 
+    function skp($nip) {
+        // GET /pns/rw-skp/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-skp/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
+    function skp22($nip) {
+        // GET /pns/rw-skp22/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-skp22/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
 }
