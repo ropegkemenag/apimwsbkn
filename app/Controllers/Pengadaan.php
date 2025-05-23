@@ -155,7 +155,7 @@ class Pengadaan extends BaseController
                 'ket_sehat_dokter' => $row->usulan_data->data->ket_sehat_dokter,
                 'ket_sehat_nomor' => $row->usulan_data->data->ket_sehat_nomor,
                 'ket_sehat_tanggal' => $row->usulan_data->data->ket_sehat_tanggal,
-                'kpkn_id' => $row->usulan_data->data->kpkn_id,
+                'kpkn_id' => ($row->usulan_data->data->kpkn_id)?$row->usulan_data->data->kpkn_id:0,
                 'kpkn_nama' => $row->usulan_data->data->kpkn_nama,
                 'lokasi_id' => $row->usulan_data->data->lokasi_id,
                 'lokasi_nama' => $row->usulan_data->data->lokasi_nama,
