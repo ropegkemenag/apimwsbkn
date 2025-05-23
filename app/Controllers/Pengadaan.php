@@ -220,7 +220,7 @@ class Pengadaan extends BaseController
                 'jenis_pegawai_id' => $row->jenis_pegawai_id,
             ];
 
-            $model->insert($param);
+            $model->save($param);
         }
     }
     
