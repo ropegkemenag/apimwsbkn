@@ -245,7 +245,7 @@ class Pns extends BaseController
         return $this->response->setJSON($response->getBody());
     }
 
-    function kompentensi($nip) {
+    function kompetensi($nip) {
         // GET /pns/rw-skp22/{nipBaru}
 
         $client = service('curlrequest');
