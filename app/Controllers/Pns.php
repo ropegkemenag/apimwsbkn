@@ -251,7 +251,7 @@ class Pns extends BaseController
         $client = service('curlrequest');
         $cache = service('cache');
 
-        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-potensi/{nipBaru}/'.$nip, [
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-potensi/'.$nip, [
             'headers' => [
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
@@ -268,7 +268,7 @@ class Pns extends BaseController
         $client = service('curlrequest');
         $cache = service('cache');
 
-        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-kompetensi/{nipBaru}/'.$nip, [
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-kompetensi/'.$nip, [
             'headers' => [
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
