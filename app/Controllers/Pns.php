@@ -286,6 +286,7 @@ class Pns extends BaseController
         $cache = service('cache');
         
         $param = [
+            'alamat' => $this->request->getPost('alamat'),
             'pns_orang_id' => $this->request->getPost('pns_orang_id'),
             'email' => $this->request->getPost('email'),
             'email_gov' => $this->request->getPost('email_gov'),
@@ -298,18 +299,18 @@ class Pns extends BaseController
             'taspen_nomor' => $this->request->getPost('taspen_nomor')
         ];
 
-        return $this->response->setJSON($param);
-        // $response = $client->request('POST', getenv('wso.apisiasn.endpoint').'/pns/data-utama-update', [
-        //     'json' => $param,
-        //     'headers' => [
-        //         'Auth'              => 'bearer '.getenv('wso.auth.token'),
-        //         'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
-        //         'Content-Type'     => 'application/json',
-        //     ],
-        //     'verify' => false
-        // ]);
+        // return $this->response->setJSON($param);
+        $response = $client->request('POST', getenv('wso.apisiasn.endpoint').'/pns/data-utama-update', [
+            'json' => $param,
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+                'Content-Type'     => 'application/json',
+            ],
+            'verify' => false
+        ]);
 
-        // return $this->response->setJSON($response->getBody());
+        return $this->response->setJSON($response->getBody());
     }
 
 }
