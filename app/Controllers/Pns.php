@@ -279,4 +279,36 @@ class Pns extends BaseController
         return $this->response->setJSON($response->getBody());
     }
 
+    function datautamaupdate() {
+        // POST /pns/data-utama-update
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+        
+        $param = [
+            'pns_orang_id' => $this->request->getPost('pns_orang_id'),
+            'email' => $this->request->getPost('email'),
+            'email_gov' => $this->request->getPost('email_gov'),
+            'karis_karsu' => $this->request->getPost('karis_karsu'),
+            'nomor_bpjs' => $this->request->getPost('nomor_bpjs'),
+            'nomor_hp' => $this->request->getPost('nomor_hp'),
+            'nomor_telpon' => $this->request->getPost('nomor_telpon'),
+            'npwp_nomor' => $this->request->getPost('npwp_nomor'),
+            'tapera_nomor' => $this->request->getPost('tapera_nomor'),
+            'taspen_nomor' => $this->request->getPost('taspen_nomor')
+        ];
+        $response = $client->request('POST', getenv('wso.apisiasn.endpoint').'/pns/data-utama-update', [
+            'json' => [
+                'pns' => $param
+            ],
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
 }
