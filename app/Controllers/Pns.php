@@ -291,12 +291,12 @@ class Pns extends BaseController
             'email' => $this->request->getPost('email'),
             'email_gov' => $this->request->getPost('email_gov'),
             'karis_karsu' => $this->request->getPost('karis_karsu'),
-            'nomor_bpjs' => $this->request->getPost('nomor_bpjs'),
+            // 'nomor_bpjs' => $this->request->getPost('nomor_bpjs'),
             'nomor_hp' => $this->request->getPost('nomor_hp'),
             'nomor_telpon' => $this->request->getPost('nomor_telpon'),
-            'npwp_nomor' => $this->request->getPost('npwp_nomor'),
+            // 'npwp_nomor' => $this->request->getPost('npwp_nomor'),
             'tapera_nomor' => $this->request->getPost('tapera_nomor'),
-            'taspen_nomor' => $this->request->getPost('taspen_nomor')
+            // 'taspen_nomor' => $this->request->getPost('taspen_nomor')
         ];
 
         // return $this->response->setJSON($param);
