@@ -298,7 +298,7 @@ class Pns extends BaseController
             'taspen_nomor' => $this->request->getPost('taspen_nomor')
         ];
         $response = $client->request('POST', getenv('wso.apisiasn.endpoint').'/pns/data-utama-update', [
-            'pns' => json_encode($param),
+            'json' => $param,
             'headers' => [
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
