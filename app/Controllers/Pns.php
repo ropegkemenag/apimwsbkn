@@ -297,17 +297,19 @@ class Pns extends BaseController
             'tapera_nomor' => $this->request->getPost('tapera_nomor'),
             'taspen_nomor' => $this->request->getPost('taspen_nomor')
         ];
-        $response = $client->request('POST', getenv('wso.apisiasn.endpoint').'/pns/data-utama-update', [
-            'json' => $param,
-            'headers' => [
-                'Auth'              => 'bearer '.getenv('wso.auth.token'),
-                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
-                'Content-Type'     => 'application/json',
-            ],
-            'verify' => false
-        ]);
 
-        return $this->response->setJSON($response->getBody());
+        return $this->response->setJSON($param);
+        // $response = $client->request('POST', getenv('wso.apisiasn.endpoint').'/pns/data-utama-update', [
+        //     'json' => $param,
+        //     'headers' => [
+        //         'Auth'              => 'bearer '.getenv('wso.auth.token'),
+        //         'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+        //         'Content-Type'     => 'application/json',
+        //     ],
+        //     'verify' => false
+        // ]);
+
+        // return $this->response->setJSON($response->getBody());
     }
 
 }
