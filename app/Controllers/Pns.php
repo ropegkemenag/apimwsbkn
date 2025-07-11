@@ -302,6 +302,7 @@ class Pns extends BaseController
             'headers' => [
                 'Auth'              => 'bearer '.getenv('wso.auth.token'),
                 'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+                'Content-Type'     => 'application/json',
             ],
             'verify' => false
         ]);
