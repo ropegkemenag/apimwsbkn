@@ -199,11 +199,10 @@ class Casn extends BaseController
                 'alasan_tolak' => $row->alasan_tolak
             ];
 
-            // if($this->checkId($row->formasi_id)){
-            //     $save = $model->save($param);
-            // }else{
-            // }
-            $save = $model->insert($param);
+            $check = $model->find($row->nik);
+            if(!$check){
+                $save = $model->insert($param);
+            }
         }
 
         $page = $page+1;

@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ParuhModel extends Model
 {
     protected $table            = 'siasn_paruh_waktu';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'nik';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
