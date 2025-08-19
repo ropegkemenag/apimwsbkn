@@ -202,10 +202,10 @@ class Casn extends BaseController
                 // 'alasan_tolak' => $row->alasan_tolak
             ];
 
-            $check = $model->find($row->nik);
-            if(!$check){
-                $save = $model->insert($param);
-            }
+            // $check = $model->find($row->nik);
+            // if(!$check){
+            // }
+            $save = $model->save($param);
         }
 
         $page = $page+1;
