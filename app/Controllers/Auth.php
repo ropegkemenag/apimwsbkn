@@ -69,4 +69,30 @@ class Auth extends BaseController
 
         return $this->response->setJSON($data);
     }
+
+    function ssotoken() {
+        // https://sso-siasn.bkn.go.id/auth/realms/public-siasn/protocol/openid-connect/token
+        $client = service('curlrequest');
+
+        $response = $client->request('POST', 'https://sso-siasn.bkn.go.id/auth/realms/public-siasn/protocol/openid-connect/token', [
+            'form_params' => [
+                'code'     => '2c007628-b9e4-4805-94a9-f53a6e7b003f.dbb9f0bc-17d7-447e-9533-7eaec933f50a.f092cc2a-38d1-4a25-a665-22eb1a7c4f20',
+                'grant_type'    => 'authorization_code',
+                'client_id'      => 'bkn-siasn-perencanaan',
+                'redirect_uri'      => 'https://perencanaan-siasn.bkn.go.id/silent-check-sso.html',
+            ],
+            'headers' => [
+                'Content-Type' => 'application/x-www-form-urlencoded'
+            ],
+            'verify' => false,
+            'debug' => true
+        ]);
+
+        $response = json_decode($response->getBody());
+
+        return $this->response->setJSON($response);
+        // $cache = service('cache');
+        // $set = $cache->save('auth.token',$response->access_token,3600);
+        // echo '';
+    }
 }
