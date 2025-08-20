@@ -209,7 +209,7 @@ class Casn extends BaseController
         }
 
         $page = $page+1;
-        if($lists->data->pagination->last_page < 125){
+        if($lists->data->pagination->last_page < 200){
             return redirect()->to('casn/paruhwaktu/'.$page);
         }else{
             echo 'Done';
