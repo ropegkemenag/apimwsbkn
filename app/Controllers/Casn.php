@@ -148,7 +148,7 @@ class Casn extends BaseController
             'query' => [
                 'instansi_id' => 'A5EB03E23BFBF6A0E040640A040252AD',
                 'page' => $page,
-                'prioritas' => 60,
+                'prioritas' => 2,
                 'mapping' => '00',
             ],
             'debug' => true,
@@ -209,7 +209,7 @@ class Casn extends BaseController
         }
 
         $page = $page+1;
-        if($lists->data->pagination->last_page < 5){
+        if($lists->data->pagination->last_page < 60){
             return redirect()->to('casn/paruhwaktu/'.$page);
         }else{
             echo 'Done';
