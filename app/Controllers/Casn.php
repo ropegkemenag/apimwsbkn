@@ -148,7 +148,7 @@ class Casn extends BaseController
             'query' => [
                 'instansi_id' => 'A5EB03E23BFBF6A0E040640A040252AD',
                 'page' => $page,
-                'prioritas' => 2,
+                'prioritas' => 1,
                 'mapping' => '00',
             ],
             'debug' => true,
