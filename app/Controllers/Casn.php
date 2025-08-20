@@ -197,15 +197,15 @@ class Casn extends BaseController
                 'unit_penempatan_nama' => $row->unit_penempatan_nama,
                 'is_terdata_nonasn' => $row->is_terdata_nonasn,
                 'status_prioritas' => $row->status_prioritas,
-                'sync_siasn' => NULL,
-                // 'is_usul' => $row->is_usul,
-                // 'alasan_tolak' => $row->alasan_tolak
+                // 'sync_siasn' => NULL,
+                'is_usul' => $row->is_usul,
+                'alasan_tolak' => $row->alasan_tolak
             ];
 
             // $check = $model->find($row->nik);
             // if(!$check){
             // }
-            $save = $model->save($param);
+            $save = $model->insert($param);
         }
 
         $page = $page+1;
