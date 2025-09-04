@@ -36,11 +36,11 @@ Updated at: '.$pppk->data->updated_at.'
 
 *Biro Sumber Daya Manusia*' ;
 
-                $hp   = '6285219898201';
+                // $hp   = '6285219898201';
                 $hp2   = '6281280706565';
 
                 $notif = new Notifikasi();
-                $notif->sendWhatsapp($hp,$text);
+                // $notif->sendWhatsapp($hp,$text);
                 $notif->sendWhatsapp($hp2,$text);
     }
 
