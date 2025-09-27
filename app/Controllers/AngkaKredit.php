@@ -12,7 +12,7 @@ class AngkaKredit extends BaseController
         //
     }
 
-    public function get($id)
+    public function getid($id)
     {
         // GET /angkakredit/id/{idRiwayatAngkaKredit}
         $client = service('curlrequest');
