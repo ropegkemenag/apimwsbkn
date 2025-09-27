@@ -279,6 +279,23 @@ class Pns extends BaseController
         return $this->response->setJSON($response->getBody());
     }
 
+    function angkakredit($nip) {
+        // GET /pns/rw-angkakredit/{nipBaru}
+
+        $client = service('curlrequest');
+        $cache = service('cache');
+
+        $response = $client->request('GET', getenv('wso.apisiasn.endpoint').'/pns/rw-angkakredit/'.$nip, [
+            'headers' => [
+                'Auth'              => 'bearer '.getenv('wso.auth.token'),
+                'Authorization'     => 'Bearer '.service('cache')->get('oauth2.token'),
+            ],
+            'verify' => false
+        ]);
+
+        return $this->response->setJSON($response->getBody());
+    }
+
     function datautamaupdate() {
         // POST /pns/data-utama-update
 
